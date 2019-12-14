@@ -7,19 +7,37 @@ const io = require('socket.io')(http)
 
 let scores = {}
 let buzzOrder = []
-const colors = ['#f47c7c', '#f7f48b', '#a1de93', '#70a1d7']
+const colors = [
+  '#00F9FF',
+  '#FF00A7',
+  '#44FF00',
+  '#F1FF00',
+  '#CD00FF',
+  '#00F9FF',
+  '#FF00A7',
+  '#44FF00'
+]
+
+const getColor = scores => {
+  let i = 0
+  let color = colors[i]
+  let currColors = Object.keys(scores).map(teamId => scores[teamId].color)
+  while (currColors.indexOf(color) !== -1 || i > colors.length) {
+    i++
+    color = colors[i]
+  }
+  return color
+}
 
 io.on('connection', socket => {
-  console.log(socket.id + ' connected')
   if (Object.keys(scores).length !== 0 || buzzOrder.length > 0)
     io.emit('refresh', { scores, buzzOrder })
 
   socket.on('join', team => {
-    console.log('team joined ' + team)
     scores[socket.id] = {
       name: team,
       score: 0,
-      color: colors[Object.keys(scores).length]
+      color: getColor(scores)
     }
     io.emit('joined', scores)
   })
@@ -51,7 +69,6 @@ io.on('connection', socket => {
   })
 
   socket.on('disconnect', () => {
-    console.log(socket.id + ' disconnected')
     buzzOrder = buzzOrder.filter(e => e !== socket.id)
     delete scores[socket.id]
     io.emit('refresh', { scores, buzzOrder })

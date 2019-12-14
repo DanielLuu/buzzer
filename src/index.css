@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+div {
+  box-sizing: border-box;
+}
+
+input {
+  box-sizing: border-box;
+  border: 1px solid gray;
+  padding: 10px;
+  font-size: 30px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+button {
+  box-sizing: border-box;
+  background: orange;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+}

@@ -7,8 +7,8 @@ import ping from './ping.mp3'
 import wrong from './wrong.m4a'
 import './App.css'
 
-// const socket = openSocket('http://localhost:9000')
-const socket = openSocket('https://buzzit-game.herokuapp.com/')
+const socket = openSocket('http://localhost:9000')
+// const socket = openSocket('https://buzzit-game.herokuapp.com/')
 
 const buzzerSound = new Audio(buzz)
 const correctSound = new Audio(ping)
@@ -22,6 +22,9 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
+    socket.on('refresh', msg => {
+      this.setState(msg)
+    })
     socket.on('joined', scores => {
       this.setState({ scores })
     })

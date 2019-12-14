@@ -10,12 +10,18 @@ export default ({
 }) => {
   return (
     <div className='host'>
-      <div className='teams-title'>SCORE</div>
+      <div className={'teams-title' + (scoreboard ? ' scoreboard-med' : '')}>
+        SCORE
+      </div>
       <div className='scores'>
         {Object.keys(scores).map(teamId => {
           let team = scores[teamId]
           return (
-            <div key={teamId} className='team'>
+            <div
+              key={teamId}
+              className={'team' + (scoreboard ? ' scoreboard-large' : '')}
+              style={{ color: team.color, borderColor: team.color }}
+            >
               <div>{team.name}</div>
               <div>
                 {!scoreboard && (
@@ -41,12 +47,16 @@ export default ({
         })}
       </div>
       <div className='buzz-order-container'>
-        <div className='buzz-order-title'>Buzz Order</div>
-        <div className='buzz-order'>
+        <div
+          className={'buzz-order-title' + (scoreboard ? ' scoreboard-med' : '')}
+        >
+          Buzz Order
+        </div>
+        <div className={'buzz-order' + (scoreboard ? ' scoreboard-order' : '')}>
           {buzzOrder.map((teamId, i) => {
             let team = scores[teamId]
             return (
-              <div key={i}>
+              <div key={i} style={{ color: i === 0 ? '#0ec585' : '#fd2d48' }}>
                 {i + 1}.) {team.name}
               </div>
             )

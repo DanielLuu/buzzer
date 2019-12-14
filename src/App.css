@@ -37,6 +37,11 @@
   margin: 10px;
 }
 
+.host {
+  max-width: 500px;
+  margin: auto;
+}
+
 .scores {
   padding: 20px;
 }
@@ -121,4 +126,16 @@
   width: 300px;
   border-radius: 50%;
   padding: 0;
+}
+
+.scoreboard-med {
+  font-size: 30px;
+}
+
+.scoreboard-order {
+  font-size: 40px;
+}
+
+.scoreboard-large {
+  font-size: 50px;
 }

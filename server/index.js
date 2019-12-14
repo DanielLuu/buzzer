@@ -17,11 +17,10 @@ io.on('connection', socket => {
   })
   socket.on('new_round', team => {
     buzzOrder = []
-    io.emit('buzzer_order', buzzOrder)
+    io.emit('new_round', buzzOrder)
   })
   socket.on('buzz', () => {
     if (buzzOrder.indexOf(socket.id) === -1) {
-      console.log('buzz ' + socket.id)
       buzzOrder.push(socket.id)
       io.emit('buzzer_order', buzzOrder)
     }
@@ -37,6 +36,12 @@ io.on('connection', socket => {
       io.emit('incorrect', buzzOrder)
     }
   })
+
+  socket.on('change_score', msg => {
+    scores[msg.teamId].score += msg.amount
+    io.emit('scores', scores)
+  })
+
   socket.on('disconnect', () => {
     console.log('user disconnected')
     buzzOrder = buzzOrder.filter(e => e !== socket.id)

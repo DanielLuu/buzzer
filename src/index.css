@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #0f111d;
+  color: white;
+  font-family: 'Oswald', sans-serif;
 }
 
 code {
@@ -23,15 +26,28 @@ input {
   font-size: 30px;
   border-radius: 5px;
   margin-bottom: 20px;
+  font-family: 'Oswald', sans-serif;
 }
 
 button {
   box-sizing: border-box;
-  background: orange;
+  background-color: #0ec585;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 25px;
   font-weight: bold;
   color: white;
+  font-family: 'Oswald', sans-serif;
+}
+
+.btn-alt {
+  background: transparent;
+  border: 2px solid #fd2d48;
+}
+
+.icon-btn {
+  padding: 0px 12px;
+  background: transparent;
+  border: 2px solid #0ec585;
 }

@@ -12,10 +12,22 @@
 
 .host-btn {
   font-size: 30px;
+  background: transparent;
+  border: 2px solid #fd2d48;
 }
 
 .player-btn {
   font-size: 30px;
+  background: transparent;
+  border: 2px solid #0ec585;
+}
+
+.scoreboard-btn {
+  position: fixed;
+  bottom: 20px;
+  font-size: 15px;
+  background: transparent;
+  border: 2px solid grey;
 }
 
 .or {
@@ -39,12 +51,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 4px solid black;
+  border: 1px solid white;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 25px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.score {
+  margin: 0 30px;
 }
 
 .buzz-order-container {
@@ -61,7 +77,7 @@
 .buzz-order {
   font-size: 20px;
   text-align: left;
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
@@ -70,17 +86,18 @@
 .buzz-btn-row {
   display: flex;
   justify-content: space-between;
+  margin-top: 30px;
   padding: 20px;
 }
 
 .correct {
   font-size: 30px;
-  background-color: green;
+  background-color: #0ec585;
 }
 
 .incorrect {
   font-size: 30px;
-  background-color: red;
+  background-color: #fd2d48;
 }
 
 .player {
@@ -98,7 +115,7 @@
 }
 
 .buzzer {
-  background-color: red;
+  background-color: #fd2d48;
   font-size: 50px;
   height: 300px;
   width: 300px;

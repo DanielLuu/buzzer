@@ -4,7 +4,8 @@ import Host from './components/Host'
 import Player from './components/Player'
 import './App.css'
 
-const socket = openSocket('http://localhost:9000')
+// const socket = openSocket('http://localhost:9000')
+const socket = openSocket('https://buzzit-game.herokuapp.com/')
 
 class App extends React.Component {
   state = {

@@ -16,6 +16,7 @@ export default ({
       <div className='scores'>
         {Object.keys(scores).map(teamId => {
           let team = scores[teamId]
+          if (!team) return <div></div>
           return (
             <div
               key={teamId}

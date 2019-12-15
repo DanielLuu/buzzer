@@ -54,9 +54,11 @@ io.on('connection', socket => {
   socket.on('verify', correct => {
     if (correct) {
       let winningTeam = buzzOrder.shift()
-      scores[winningTeam].score++
-      buzzOrder = []
-      io.emit('correct', scores)
+      if (winningTeam) {
+        scores[winningTeam].score++
+        buzzOrder = []
+        io.emit('correct', scores)
+      }
     } else {
       buzzOrder.shift()
       io.emit('incorrect', buzzOrder)
